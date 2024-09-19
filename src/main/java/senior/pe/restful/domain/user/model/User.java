@@ -34,7 +34,7 @@ public class User extends Auditable {
     private String email;
     private String password;
     private LocalDateTime lastLogin;
-    private Boolean isActive = Boolean.TRUE;
+    private Boolean isActive;
     private String token;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "b42a13d3-8c44-4c14-8c4a-d5b51c8869c7",
+		"name": "SERMALUC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16723774",
+		"_collection_link": "https://solar-shadow-434329.postman.co/workspace/SENIOR~053a6c7f-0182-407a-88f0-b4c10b2ae9b9/collection/16723774-b42a13d3-8c44-4c14-8c4a-d5b51c8869c7?action=share&source=collection_link&creator=16723774"
+	},
+	"item": [
+		{
+			"name": "CREATE USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Juan Rodriguez\",\r\n    \"email\": \"rosa@rodriguez.org\",\r\n    \"password\": \"Hunter2Password10\",\r\n    \"phones\": [\r\n        {\r\n            \"number\": \"1234567\",\r\n            \"citycode\": \"1\",\r\n            \"countrycode\": \"57\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8181/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8181/api/v1/users/bb06d459-b318-4e63-a05b-197f1d78713c",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8181",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"bb06d459-b318-4e63-a05b-197f1d78713c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

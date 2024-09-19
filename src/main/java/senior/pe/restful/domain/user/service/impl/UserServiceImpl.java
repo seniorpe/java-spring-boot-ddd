@@ -23,10 +23,12 @@ public class UserServiceImpl implements UserService {
             throw new ExistsEmailException("El correo ya fue registrado.");
         }
 
+        String token = jwtTokenProvider.generateToken(user.getEmail());
+
         user.setId(UUID.randomUUID());
         user.setLastLogin(LocalDateTime.now());
-        String token = jwtTokenProvider.generateToken(user.getEmail());
         user.setToken(token);
+        user.setIsActive(Boolean.TRUE);
 
         if (user.getPhones() != null) {
             user.getPhones().forEach(phone -> phone.setUser(user));
