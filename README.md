@@ -7,8 +7,8 @@ Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y tel
 1. [Pre-requisitos](#pre-requisitos)
 2. [Compilar el Proyecto](#compilar-el-proyecto)
 3. [Desplegar en Docker](#desplegar-en-docker)
-4. [Ejecutar Pruebas Unitarias y Karate](#ejecutar-pruebas-unitarias-y-karate)
-5. [Validar endpoints en Postman](#validar-endpoints-en-postman)
+4. [Ejecutar Pruebas Unitarias](#ejecutar-pruebas-unitarias)
+5. [Validar Swagger, H2 y Postman](#validar-swagger-h2-y-postman)
 
 ## Pre-requisitos
 
@@ -46,7 +46,9 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
    docker build -t java-spring-boot-ddd .
    docker run -d -p 8181:8181 java-spring-boot-ddd
    
-Esto levantará el proyecto en Docker.
+3. **Validar despliegue**
+   ```bash
+      docker ps
 
 ## Ejecutar Pruebas Unitarias
 
@@ -57,15 +59,33 @@ Esto levantará el proyecto en Docker.
    
 Esto ejecutará todas las pruebas unitarias.
 
-## Validar Postman
-1. **Importar la colección a Postman:**
+## Validar Swagger, H2 y Postman
+1. **Swagger**
    ```bash
-   Importar->Seleccionar fichero: RESTful.postman_collection
+   URL: http://127.0.0.1:8181/api/v1/swagger-ui/index.html
+
+![](_screenshots/swagger.png)
    
-Al realiza la importacion se tendrá todos los endpoints requeridos.
+2. **H2 Console**
+   Las tablas de la base de datos se generan al desplegar el proyecto. El archivo DDL está en: resources/db/create.sql
+   ```bash
+   URL: http://127.0.0.1:8181/api/v1/h2-console
 
-2. **Screenshot de la colección Postman**
+   Driver Class: org.h2.Driver
+   JDBC URL: jdbc:h2:mem:db
+   User Name: sa
+   Password: qwerty
+      
+![](_screenshots/h2_1.png)
 
+![](_screenshots/h2_2.png)
+
+3. **Postman**
+   Se debe importar a Postma el fichero de la colección que está dentro del proyecto.
+   ```bash
+   resources/postman/RESTful.postman_collection
+   
+![](_screenshots/postman.png)
 
 
 
