@@ -67,10 +67,10 @@ Esto ejecutará todas las pruebas unitarias.
 ![](_screenshots/swagger.png)
    
 2. **H2 Console**
+   Las tablas de la base de datos se generan al desplegar el proyecto. El archivo DDL está en: resources/db/create.sql
    ```bash
    URL: http://127.0.0.1:8181/api/v1/h2-console
 
-   ```bash
    Driver Class: org.h2.Driver
    JDBC URL: jdbc:h2:mem:db
    User Name: sa
@@ -81,7 +81,11 @@ Esto ejecutará todas las pruebas unitarias.
 ![](_screenshots/h2_2.png)
 
 3. **Postman**
-![](_screenshots/postman.jpg)
+   Se debe importar a Postma el fichero de la colección que está dentro del proyecto.
+   ```bash
+   resources/postman/RESTful.postman_collection
+   
+![](_screenshots/postman.png)
 
 
 
