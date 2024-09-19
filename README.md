@@ -1,6 +1,6 @@
 # Guía de ejecución del Proyecto
 
-Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y teléfonos co persistencia en una base de datos H2.
+Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y teléfonos con persistencia en una base de datos H2.
 
 ## Índice
 
@@ -9,6 +9,7 @@ Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y tel
 3. [Desplegar en Docker](#desplegar-en-docker)
 4. [Ejecutar Pruebas Unitarias](#ejecutar-pruebas-unitarias)
 5. [Validar Swagger, H2 y Postman](#validar-swagger-h2-y-postman)
+6. [Diagrama Proyecto](#diagrama-proyecto)
 
 ## Pre-requisitos
 
@@ -81,12 +82,13 @@ Esto ejecutará todas las pruebas unitarias.
 ![](_screenshots/h2_2.png)
 
 3. **Postman**
-   Se debe importar a Postma el fichero de la colección que está dentro del proyecto.
+   Se debe importar a Postman el fichero de la colección que está dentro del proyecto.
    ```bash
    resources/postman/RESTful.postman_collection
    
 ![](_screenshots/postman.png)
 
+## Diagrama Proyecto
+Este proyecto está basado en Domain-Driven Design (DDD), un enfoque que organiza el código en torno al dominio del negocio. El sistema se divide en diferentes Bounded Contexts, cada uno representando una parte específica del dominio. Las entidades, agregados, servicios de dominio y repositorios son utilizados para garantizar que el modelo refleje con precisión el conocimiento del negocio, facilitando el desarrollo y mantenimiento del sistema a medida que evoluciona.
 
-
-
+![](_screenshots/ddd.png)
