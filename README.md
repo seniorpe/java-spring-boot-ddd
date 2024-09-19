@@ -1,23 +1,72 @@
-Spring Boot app with domain driven design(DDD).
+# Guía de ejecución del Proyecto
 
-## Layers
+Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y teléfonos co persistencia en una base de datos H2.
 
-### User Interface
-This is where the customer can find all the information needed to place an order. In an e-commerce case, this is where the products are. This layer presents the information to the client and interprets their actions.
+## Índice
 
-### Application
-This layer doesn't contain business logic. It's the part that leads the user from one to another UI screen. It also interacts with application layers of other systems. It can perform simple validation but it contains no domain-related logic or data access. Its purpose is to organize and delegate domain objects to do their job. Moreover, it's the only layer accessible to other bounded contexts.
+1. [Pre-requisitos](#pre-requisitos)
+2. [Compilar el Proyecto](#compilar-el-proyecto)
+3. [Desplegar en Docker](#desplegar-en-docker)
+4. [Ejecutar Pruebas Unitarias y Karate](#ejecutar-pruebas-unitarias-y-karate)
+5. [Validar endpoints en Postman](#validar-endpoints-en-postman)
 
-### Domain
-This is where the concepts of the business domain are. This layer has all the information about the business case and the business rules. Here’s where the entities are. As we mentioned earlier, entities are a combination of data and behavior, like a user or a product.
+## Pre-requisitos
 
-They have a unique identity guaranteed via a unique key and remains even when their attributes change. For example, in an e-commerce store, every order has a unique identifier. It has to go through several actions like confirming and shipping to be considered as an entity.
+Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 
-On the other hand, value objects don't have unique identifiers. They represent attributes that various entities can share. For example, this could be the same last name of different customers.
+- [Java 17](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
+- [Maven 3.8.8](https://maven.apache.org/download.cgi)
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-This part also contains services with defined operational behavior that don't have to be a part of any domain. However, they are still part of the business domain. The services are named according to the ubiquitous language. They shouldn't deprive entities and value objects of their clear accountability and actions. Customers should be able to use any given service instance. The history of that instance during the lifetime of the application shouldn't be a problem.
+## Compilar el Proyecto
 
-Most importantly, the domain layer is in the center of the business application. This means that it should be separated from the rest of the layers. It shouldn't depend on the other layers or their frameworks.
+1. **Clona el repositorio:**
 
-### Infrastructure
-This layer supports communication between other layers and can contain supporting libraries for the UI layer.
+   ```bash
+   cd sources
+   git clone https://github.com/seniorpe/java-spring-boot-ddd.git
+   
+   
+2. **Compilar el proyecto usando Maven:**
+
+   ```bash
+   cd java-spring-boot-ddd
+   mvn clean install -DskipTests
+   
+ Esto descargará las dependencias, compilará el código fuente y ejecutará sin las pruebas unitarias.
+
+## Desplegar en Docker
+
+1. **Asegúrate de que Docker se encuentre funcionando.**
+   
+2. **Desplegar en Docker**
+
+   ```bash
+   docker build -t java-spring-boot-ddd .
+   docker run -d -p 8181:8181 java-spring-boot-ddd
+   
+Esto levantará el proyecto en Docker.
+
+## Ejecutar Pruebas Unitarias
+
+1. **Ejecuta los tests:**
+
+   ```bash
+   mvn test
+   
+Esto ejecutará todas las pruebas unitarias.
+
+## Validar Postman
+1. **Importar la colección a Postman:**
+   ```bash
+   Importar->Seleccionar fichero: RESTful.postman_collection
+   
+Al realiza la importacion se tendrá todos los endpoints requeridos.
+
+2. **Screenshot de la colección Postman**
+
+
+
+
+
