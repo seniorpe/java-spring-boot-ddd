@@ -64,13 +64,21 @@ Esto ejecutará todas las pruebas unitarias.
    ```bash
    URL: http://127.0.0.1:8181/api/v1/swagger-ui/index.html
 
-   ![](_screenshots/swagger.png)
+![](_screenshots/swagger.png)
    
 2. **H2 Console**
    ```bash
    URL: http://127.0.0.1:8181/api/v1/h2-console
-   
+
+   ```bash
+   Driver Class: org.h2.Driver
+   JDBC URL: jdbc:h2:mem:db
+   User Name: sa
+   Password: qwerty
+      
 ![](_screenshots/h2_1.png)
+
+![](_screenshots/h2_2.png)
 
 3. **Postman**
 ![](_screenshots/postman.jpg)
