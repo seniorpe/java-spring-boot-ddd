@@ -8,7 +8,7 @@ Este proyecto es una API RESTful basada en Spring Boot que maneja usuarios y tel
 2. [Compilar el Proyecto](#compilar-el-proyecto)
 3. [Desplegar en Docker](#desplegar-en-docker)
 4. [Ejecutar Pruebas Unitarias](#ejecutar-pruebas-unitarias)
-5. [Validar endpoints en Postman](#validar-endpoints-en-postman)
+5. [Validar Swagger, H2 y Postman](#validar-swagger-h2-y-postman)
 
 ## Pre-requisitos
 
